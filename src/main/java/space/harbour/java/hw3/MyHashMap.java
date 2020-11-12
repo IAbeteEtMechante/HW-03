@@ -94,6 +94,12 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     @Override
     public V get(Object key) {
+        int i = keyToBucketIndex(key);
+        for (Pair<K, V> pair : buckets[i]) {
+            if (pair.key.equals(key)) {
+                return pair.value;
+            }
+        }
         return null;
     }
 
