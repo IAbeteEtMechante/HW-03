@@ -82,6 +82,13 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsValue(Object value) {
+        for (int i = 0; i < bucketSize; i++) {
+            for (Pair<K, V> pair : buckets[i]) {
+                if (pair.value.equals(value)) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
