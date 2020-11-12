@@ -109,7 +109,8 @@ public class MyHashMap<K, V> implements Map<K, V> {
         int i = keyToBucketIndex(key);
 
         if (buckets[i].contains(pair)) {
-            // replace it!
+            buckets[i].remove(pair);
+            buckets[i].add(pair);
         } else {
             buckets[i].add(pair);
         }
