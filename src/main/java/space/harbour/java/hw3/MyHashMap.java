@@ -6,6 +6,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class MyHashMap<K, V> implements Map<K, V> {
+
+    /*  Notice how this class Pair is inside the other class!
+            This is just a storage.
+    */
     public static class Pair<K, V> {
         private K key;
         private V value;
@@ -39,8 +43,13 @@ public class MyHashMap<K, V> implements Map<K, V> {
     public int size() {
         int result = 0;
 
+        //iterate through the array and get the size of each LinkedList
         for (int i = 0; i < buckets.length; i++) {
-            result += buckets[i].size();
+
+            /*Notice that we don't have to check for null here:
+            they are never null because of the constructor we used
+            */
+            result += buckets[i].size(); 
         }
 
         return result;
@@ -53,14 +62,17 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     private int keyToBucketIndex(Object key) {
         return Math.abs(key.hashCode() % bucketSize);
-        //return key.hashCode() >> 27;
+        //return key.hashCode() >> 27; //should do the same thing as above
     }
 
     @Override
     public boolean containsKey(Object key) {
         int i = keyToBucketIndex(key);
         for (Pair<K, V> pair : buckets[i]) {
-            if (pair.key.equals(key)) {
+            /* We can access pair.key, even though it is private
+            because Pair is an inner class of our HashMap  
+            */
+            if (pair.key.equals(key)) { 
                 return true;
             }
         }
@@ -102,6 +114,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     }
 
+    /* clear() is the same as the constructor
+    we create empty linked list for each element of the array.
+    Garbage collection will take care of whatever we had before
+    and delete it at some point in time. */
     @Override
     public void clear() {
         for (int i = 0; i < buckets.length; i++) {
@@ -109,6 +125,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
         }
     }
 
+    //methods below are optional for the homework
     @Override
     public Set<K> keySet() {
         return null;
