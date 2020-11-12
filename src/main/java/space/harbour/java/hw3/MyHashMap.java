@@ -164,7 +164,14 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     @Override
     public Collection<V> values() {
-        return null;
+        Collection<V> result = new HashSet<>();
+        for (int i = 0; i < bucketSize; i++) {
+            for (Pair<K, V> pair : buckets[i]) {
+                result.add(pair.value);
+            }
+        }
+        
+        return result;
     }
 
     @Override

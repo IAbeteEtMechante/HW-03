@@ -30,6 +30,7 @@ public class MapExample {
         System.out.println(contacts.containsValue("888-888-888"));
         contacts.put("Ahmed", "333-333-333");
         System.out.println(contacts.keySet());
+        System.out.println(contacts.values());
         
 
     }
