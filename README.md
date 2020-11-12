@@ -2,4 +2,4 @@
 
 Author: Student Name
 
-![HW-02](https://github.com/vasart/potential-happiness/workflows/HW-02/badge.svg)
+![HW-03](https://github.com/IAbeteEtMechante/HW-03/workflows/HW-03/badge.svg)
