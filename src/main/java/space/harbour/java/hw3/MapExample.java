@@ -21,6 +21,7 @@ public class MapExample {
         System.out.println(contacts.size());
         System.out.println(contacts.isEmpty());
         System.out.println(contacts.containsKey("Vasilii"));
+        System.out.println("Contains Pierre?: " + contacts.containsKey("Pierre"));
         System.out.println(contacts.containsValue("987-654-321"));
 
         HashMap<String, String> newContacts = new HashMap<>();
