@@ -59,8 +59,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
     @Override
     public boolean containsKey(Object key) {
         int i = keyToBucketIndex(key);
-        for (Pair<K, V> pair: buckets[i]) {
-            if (pair.key.equals(key)) return true;
+        for (Pair<K, V> pair : buckets[i]) {
+            if (pair.key.equals(key)) {
+                return true;
+            }
         }
 
         return false;
