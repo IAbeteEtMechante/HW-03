@@ -1,6 +1,7 @@
 package space.harbour.java.hw3;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
@@ -152,7 +153,13 @@ public class MyHashMap<K, V> implements Map<K, V> {
     //methods below are optional for the homework
     @Override
     public Set<K> keySet() {
-        return null;
+        Set<K> result = new HashSet<>();
+        for (int i = 0; i < bucketSize; i++) {
+            for (Pair<K, V> pair : buckets[i]) {
+                result.add(pair.key);
+            }
+        }
+        return result;
     }
 
     @Override

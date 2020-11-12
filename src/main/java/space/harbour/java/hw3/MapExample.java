@@ -28,6 +28,8 @@ public class MapExample {
         newContacts.put("Duc", "888-888-888");
         contacts.putAll(newContacts);
         System.out.println(contacts.containsValue("888-888-888"));
+        contacts.put("Ahmed", "333-333-333");
+        System.out.println(contacts.keySet());
         
 
     }
