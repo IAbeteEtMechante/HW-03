@@ -1,8 +1,8 @@
 package space.harbour.java.hw3;
 
+import java.util.HashMap;
+import java.util.Map;
 import space.harbour.java.hw3.MyHashMap;
-//import java.util.HashMap;
-//import java.util.Map;
 
 public class MapExample {
     public static void main(String[] args) {
@@ -22,6 +22,12 @@ public class MapExample {
         System.out.println(contacts.isEmpty());
         System.out.println(contacts.containsKey("Vasilii"));
         System.out.println(contacts.containsValue("987-654-321"));
+
+        HashMap<String, String> newContacts = new HashMap<>();
+        newContacts.put("Duc", "888-888-888");
+        contacts.putAll(newContacts);
+        System.out.println(contacts.containsValue("888-888-888"));
+        
 
     }
 }

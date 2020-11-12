@@ -125,7 +125,9 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
-
+        for (Entry<? extends K, ? extends V> pair : m.entrySet()) {
+            put(pair.getKey(), pair.getValue());
+        }
     }
 
     /* clear() is the same as the constructor
