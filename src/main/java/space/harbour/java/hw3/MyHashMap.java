@@ -1,5 +1,6 @@
 package space.harbour.java.hw3;
 
+import java.util.AbstractMap;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -176,6 +177,12 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     @Override
     public Set<Entry<K, V>> entrySet() {
-        return null;
+        Set<Entry<K, V>> result = new HashSet<>();
+        for (int i = 0; i < bucketSize; i++) {
+            for (Pair<K, V> pair : buckets[i]) {
+                result.add(new AbstractMap.SimpleEntry<K, V>(pair.key, pair.value));
+            }
+        }
+        return result;
     }
 }
